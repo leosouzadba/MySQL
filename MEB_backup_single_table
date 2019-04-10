@@ -1,0 +1,8 @@
+--MySQL Enterprise Backup from Single Table
+
+/opt/mysql/meb-4.1/bin/mysqlbackup -u root -p --backup-dir=/backup/ --verbose --with-timestamp=true --socket=/var/lib/mysql/mysql.sock --include-tables="^databaseschema\.TABLE_NAME" backup-and-apply-log
+
+
+--MySQL Enterprise Backup from Single Table, using tts-backup
+
+/opt/mysql/meb-4.1/bin/mysqlbackup -u root -p --backup-dir=/var/bkp/ --verbose --with-timestamp=true --socket=/var/lib/mysql/mysql.sock --include-tables="^directoryservice\.AIM_CERT_PSBIO_AUDIT" --use-tts backup
