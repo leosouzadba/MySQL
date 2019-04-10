@@ -1,0 +1,36 @@
+tee mysql_output.txt; 
+select now(), @@version, @@version_comment, @@hostname, @@port, @@basedir, @@datadir, @@tmpdir, @@log_error, 
+@@slow_query_log_file, user(), current_user(), /*!50600 @@server_uuid,*/ @@server_id\G 
+
+select benchmark(50000000,(1234*5678/37485-1298+8596^2)); #should take less than 20 seconds 
+show global variables; 
+/*!50503 select * from performance_schema.setup_instruments where name like 'wait/sync%' and (enabled='yes' or timed='yes')*/; 
+/*!50503 show engine performance_schema status */; 
+/*!50602 select * from mysql.slave_master_info */; 
+/*!50602 select * from mysql.slave_relay_log_info */; 
+/*!50602 select * from mysql.slave_worker_info */; 
+show master logs; 
+show plugins; 
+show engines; 
+show global status; 
+show engine innodb status\G 
+show slave status\G 
+show master status; 
+xa recover; 
+show full processlist; 
+/*!50503 select * from information_schema.innodb_trx order by trx_started*/; 
+/*!50503 select * from performance_schema.threads order by thread_id */; 
+/*!50708 select * from sys.session order by thd_id */; 
+select sleep(30); 
+show global status; 
+show engine innodb status\G 
+show slave status\G 
+show master status; 
+xa recover; 
+show full processlist; 
+/*!50503 select * from information_schema.innodb_trx order by trx_started*/; 
+/*!50503 select * from performance_schema.threads order by thread_id */; 
+/*!50708 select * from sys.session order by thd_id */; 
+
+\s 
+notee; 
